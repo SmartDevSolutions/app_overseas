@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App Overseas</title>
+    <link rel="stylesheet" href="styles.css" />
+
+
+    <!-- 
+Icons provided by Font Awesome (https://fontawesome.com/)
+Licensed under the Font Awesome Free License (https://fontawesome.com/license/free)
+-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  </head>
+  <body>
+    <header>
+        <div class="logo">
+            <img src="media/KROATIEN_Logo_Color.png" alt="MyApp Logo">
+        </div>        
+      <nav>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        <ul class="nav-menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Upute</a></li>
+          <li><a href="#">Aplikacije</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Download Applications</h1>
+      <div class="grid-container">
+        <div class="grid-item">
+          <i class="fas fa-signature"></i><span>App One</span>
+        </div>
+        <div class="grid-item">
+          <i class="fas fa-truck"></i><span>App Two</span>
+        </div>
+        <div class="grid-item">
+          <i class="fas fa-tools"></i><span>App Three</span>
+        </div>
+        <div class="grid-item">
+          <i class="fas fa-shipping-fast"></i><span>App Four</span>
+        </div>
+        <div class="grid-item">
+          <i class="fas fa-credit-card"></i><span>App Five</span>
+        </div>
+        <div class="grid-item">
+          <i class="fas fa-briefcase"></i><span>App Six</span>
+        </div>
+        <div class="grid-item">
+          <i class="fas fa-laptop-medical"></i><span>App Seven</span>
+        </div>
+        <div class="grid-item">
+          <i class="fas fa-laptop"></i><span>App Eight</span>
+        </div>
+        <div class="grid-item">
+          <i class="fas fa-suitcase"></i><span>App Nine</span>
+        </div>
+        <div class="grid-item">
+          <i class="fas fa-gears"></i><span>App Ten</span>
+        </div>
+      </div>
+      <div class="expanded-view" id="expandedView">
+        <div class="expanded-content">
+          <h2 id="expandedTitle"></h2>
+          <button class="option-btn" id="installGuide">
+            Upute za instalaciju
+          </button>
+          <button class="option-btn" id="usageGuide">
+            Upute za korištenje
+          </button>
+          <button class="option-btn" id="downloadApp">
+            Download aplikacije
+          </button>
+          <button class="close-btn">Close</button>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Debug: Log to check if DOM is loaded
+      console.log("DOM Loaded");
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const navMenu = document.querySelector(".nav-menu");
+        const menuToggle = document.querySelector(".menu-toggle");
+
+        // Debug: Log initial state of navMenu
+        console.log("Initial navMenu class:", navMenu.classList);
+
+        // Ensure menu starts hidden
+        if (navMenu.classList.contains("active")) {
+          navMenu.classList.remove("active");
+          console.log("Removed active class from navMenu");
+        }
+
+        // Toggle menu on hamburger click
+        menuToggle.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation(); // Prevent event bubbling
+          navMenu.classList.toggle("active");
+          console.log(
+            "Menu toggled, active:",
+            navMenu.classList.contains("active")
+          );
+        });
+
+        const gridItems = document.querySelectorAll(".grid-item");
+        const expandedView = document.getElementById("expandedView");
+        const expandedTitle = document.getElementById("expandedTitle");
+        const closeBtn = document.querySelector(".close-btn");
+
+        // Handle grid item clicks for expanded view
+        gridItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            const appName = this.querySelector("span").textContent;
+            expandedTitle.textContent = appName;
+            expandedView.style.display = "flex";
+            document.body.style.overflow = "hidden";
+          });
+        });
+
+        // Handle closing the expanded view
+        closeBtn.addEventListener("click", function () {
+          expandedView.style.display = "none";
+          document.body.style.overflow = "auto";
+        });
+
+        expandedView.addEventListener("click", function (e) {
+          if (e.target === expandedView) {
+            expandedView.style.display = "none";
+            document.body.style.overflow = "auto";
+          }
+        });
+
+        // Handle clicking outside the nav-menu to close it
+        document.addEventListener("click", function (e) {
+          if (
+            !navMenu.contains(e.target) &&
+            !menuToggle.contains(e.target) &&
+            navMenu.classList.contains("active")
+          ) {
+            navMenu.classList.remove("active");
+            console.log("Closed menu by clicking outside");
+          }
+        });
+      });
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'91aabbcfbd1553c8',t:'MTc0MTAyMTY4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
