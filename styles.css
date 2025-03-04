@@ -36,6 +36,10 @@
         z-index: 1004; 
     }
 
+    .nav-menu li {
+        margin-left: 0 !important;
+    }
+
     .menu-toggle:hover {
         color: #f58220;
     }
@@ -66,6 +70,7 @@
         align-items: center;
         justify-content: center; 
         min-height: 0; 
+        margin: 0 !important;
     }
 
     .nav-menu.active {
@@ -182,7 +187,7 @@
         top: 0;
         right: 0;
         margin: 0.5rem auto; 
-        font-size: 1.5rem;
+        font-size: 20px;
         cursor: pointer;
         color: #43515a;
         transition: color 0.3s ease;
@@ -193,7 +198,7 @@
     }
 
     .menu-toggle:active {
-        color: #d46c0e;
+        color: #5c330e;
     }
 
     .nav-menu {
@@ -218,6 +223,10 @@
         align-items: center; 
         justify-content: center;
         min-height: 0; 
+    }
+
+    .nav-menu li {
+        margin-left: 0 !important;
     }
 
     .nav-menu.active {
@@ -371,24 +380,31 @@ header nav {
 }
 
 .nav-menu li {
-    margin-left: 2rem;
+    margin-left: 5rem;
+    padding: 5px;
 }
 
 .nav-menu a {
     text-decoration: none;
     color: #43515a;
-    font-weight: 500;
+    font-size: 20px;
     transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 3px 15px 3px 15px;
+    border-radius: 2px;
+    box-sizing: border-box;
 }
 
 .nav-menu a:hover {
-    color: #f58220;
-    background-color: rgba(245, 130, 32, 0.15);
+    background-color: #f58220;
+    /*background-color: rgba(245, 130, 32, 0.15);*/
+    color: #FFFFFF;
 }
 
 .nav-menu a:active {
     color: #d46c0e;
     background-color: rgba(212, 108, 14, 0.2);
+    padding: 3px; 
+    font-size: 20px;
 }
 
 .menu-toggle {
@@ -401,10 +417,13 @@ header nav {
 
 .menu-toggle:hover {
     color: #f58220;
+    font-size: 20px;
 }
 
 .menu-toggle:active {
     color: #d46c0e;
+    background-color: rgba(212, 108, 14, 0.2);
+    padding: 3px;
 }
 
 main {
